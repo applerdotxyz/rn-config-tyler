@@ -1,4 +1,4 @@
-import React, { createElement, useState } from "react";
+import React, { createElement, useState, useRef } from "react";
 import { Button, Platform, Text, TouchableOpacity, View } from "react-native";
 import { Col, Grid, Row } from "react-native-easy-grid";
 import { AppProps, UXColumnProps } from "../AppProps";
@@ -8,6 +8,7 @@ import {
   setAppState as sa,
   setLayoutConfig as sl,
   setGlobalState as sg,
+  setPreviousLayoutConfig as spc,
 } from "./helpers";
 // All component which will be rendered
 
@@ -16,6 +17,14 @@ import {
 // render a grid layout as per the configuration
 export const App = (props: AppProps) => {
   const [config, setConfig] = useState(props?.config);
+
+  const [previousLayoutConfig, _setPreviousLayoutConfig] = useState();
+  const prevConfigRef = useRef();
+  prevConfigRef.current = config?.layout;
+  const prevConfig = prevConfigRef?.current;
+
+
+
   const [debug, setDebug] = useState(props?.debug || false);
   const routes = props?.routes;
   const componentsSet = props?.config?.componentsSet;
@@ -31,6 +40,10 @@ export const App = (props: AppProps) => {
     $global: {},
   });
 
+  const prevAppStateRef = useRef();
+  prevAppStateRef.current = appState;
+  const prevAppState = prevAppStateRef?.current;
+
   let tailwind = (s) => {
     return {};
   };
@@ -39,15 +52,27 @@ export const App = (props: AppProps) => {
     tailwind = require("tailwind-rn");
   }
 
+  const setPreviousLayoutConfig = (prevConfig) => {
+    spc(_setPreviousLayoutConfig, previousLayoutConfig, prevConfig);
+    console.log("Previous Layout", prevConfig);
+  };
+
   // logic to update layout config (which is stored in config state var)
   const setLayoutConfig = (_config, format = "none") => {
+    setPreviousLayoutConfig(prevConfig);
     sl(setConfig, config, _config, format);
   };
+  console.log("Current Layout", config?.layout);
 
   // logic to update app state
   const setAppState = (newAppState, format = "none") => {
+    console.log("Current appState", appState);
+
+    console.log("Previous appState",prevAppState)
     sa(_setAppState, appState, newAppState, format);
   };
+  console.log("Current appState", appState);
+
 
   // // logic to update global state
   // const setGlobalState = (newAppState, format = "none") => {
@@ -66,6 +91,8 @@ export const App = (props: AppProps) => {
       setAppState,
       setLayoutConfig,
       colClass,
+      prevConfig,
+      setPreviousLayoutConfig,
     } = colProps;
     const colSection = createElement(
       label &&
@@ -86,6 +113,8 @@ export const App = (props: AppProps) => {
         setLayoutConfig,
         getEvents,
         getInitEvents,
+        prevConfig,
+      setPreviousLayoutConfig,
       },
       appState[label]?.children || children
     );
@@ -131,8 +160,8 @@ export const App = (props: AppProps) => {
               getEvents,
             };
 
-            console.log(`passProps >> `, passProps);
-            
+            // console.log(`passProps >> `, passProps);
+
             return (
               <Col
                 size={size}
@@ -150,8 +179,7 @@ export const App = (props: AppProps) => {
               <Col
                 key={`${rId}-${colNo}`}
                 size={
-                  cols[cId].layout?.layoutConfig?.size 
-                  ||
+                  cols[cId].layout?.layoutConfig?.size ||
                   cols[cId]?.layout.colConfig?.colSize
                 }
                 style={{
@@ -175,12 +203,10 @@ export const App = (props: AppProps) => {
       let gridJsx = [];
       if (rows && Object.keys(rows)) {
         gridJsx = Object.keys(rows).map((rId) => {
-          if (rId === "colConfig" || rId === "layoutConfig") 
-          {
+          if (rId === "colConfig" || rId === "layoutConfig") {
             return null;
           } else {
             // console.log(rows[rId]);
-
             return (
               <Row
                 key={`${rId}`}

@@ -136,7 +136,7 @@ export const appConfig = {
               // col no
               colSize: 1,
               idx: "JsonForm",
-              label: "bodyHeader",
+              label: "bodyHeaderNew",
               colStyle: {
                 borderColor: "cyan",
                 alignSelf: "center",

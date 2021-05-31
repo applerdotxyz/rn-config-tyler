@@ -6,10 +6,10 @@ const Empty = () => <Text>Sorry type not match</Text>;
 const Entry = ({ modules }) => {
   const [selectedValue, setSelectedValue] = useState("");
   const [demoDesc, setDemoDesc] = useState("");
-  console.log(selectedValue);
+  // console.log(selectedValue);
 
   const pickerOptionsSection = Object.keys(modules).map((id) => {
-    return <Picker.Item label={modules[id].id} value={modules[id].id} />;
+    return <Picker.Item label={modules[id].id} key={id} value={modules[id].id} />;
   });
 
   return (
@@ -54,7 +54,7 @@ function load(selectedValue) {
   if (moduleConfig) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const { App } = require("../helpers/lib/src/");
-    console.log(moduleConfig);
+    // console.log(moduleConfig);
     return (
       <App
         key={selectedValue}

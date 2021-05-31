@@ -20,6 +20,7 @@ export const componentsSet = {
   Home,
   About,
   RandomPic,
+  
 };
 
 // components section
@@ -231,21 +232,29 @@ export const events = {
     // <event> :: <handler>
     onPress: (setLayoutConfig) => {
       setLayoutConfig(routes["routeOne"], "copy");
+      // var back = document.querySelector(`[data-testid="footer2-btn-two"]`);
+      // back.addEventListener('click', setPreviousLayoutConfig(prevConfig))
     },
   },
+
+  
 };
+
+// var back = document.querySelector(`[data-testid="footer2-btn-two"]`).click();
+
+// back.addEventListener('click', setPreviousLayoutConfig(prevConfig))
 
 // *************************************************
 //  Helper Util
 // *************************************************
 // bind events based on the layout config
-export const getEvents = (elId, setLayoutConfig, setAppState) => {
+export const getEvents = (elId, setLayoutConfig, setAppState,setPreviousLayoutConfig,prevConfig) => {
   const elEvents = {};
   events[elId] &&
     Object.keys(events[elId]).map((eventName) => {
       elEvents[eventName] = () =>
         events[elId] && events[elId][eventName] && events[elId][eventName]
-          ? events[elId][eventName](setLayoutConfig, setAppState)
+          ? events[elId][eventName](setLayoutConfig, setAppState,setPreviousLayoutConfig,prevConfig)
           : {};
     });
   return elEvents;

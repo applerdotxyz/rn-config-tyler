@@ -25,7 +25,7 @@ export const Home = (props: {
     colClass,
   } = props;
 
-  console.log(colClass);
+  // console.log(colClass);
   // console.log(getEvents(`${label}-btn-one`, setLayoutConfig, setAppState));
   // console.log(appState);
 

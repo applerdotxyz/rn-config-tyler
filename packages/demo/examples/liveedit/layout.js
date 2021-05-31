@@ -21,156 +21,129 @@ export const routes = {};
 export const appConfig = {
   tw: true,
   componentsSet,
-  layout: {
-    layoutConfig: {
-      layoutClass: "py-1 rounded bg-red-100 p-1 mr-3 ",
-    },
-    // row no
-    0: {
-      // col no
-      0: {
-        layout: {
-          layoutConfig: {
-            layoutClass: "py-1 rounded bg-red-100 p-1 mr-3 ",
-            size: 10,
+  "layout": {
+    "0": {
+      "0": {
+        "layout": {
+          "0": {
+            "0": {
+              "idx": "Home",
+              "label": "left-nav",
+              "colClass": "bg-blue-500 p-1 text-sm text-red",
+              "size": 30
+            }
           },
-          0: {
-            0: {
-              // col no
-              idx: "Home",
-              label: "left-nav",
-              colClass: "bg-blue-500 p-1 text-sm text-red",
-              size: 20,
-            },
+          "1": {
+            "0": {
+              "idx": "Home",
+              "label": "body",
+              "colClass": "bg-red-300 p-3 text-3xl y-10 bg-blue-light rounded font-bold text-red text-sm  flex",
+              "size": 70
+            }
           },
-          1: {
-            0: {
-              // col no
-              idx: "Home",
-              label: "body",
-              colClass:
-                "bg-red-300 p-3 text-3xl y-10 bg-blue-light rounded font-bold text-red text-sm mr-2 flex",
-              size: 65,
-            },
-          },
-        },
+          "layoutConfig": {
+            "layoutClass": "py-1 rounded bg-red-100 p-1 mr-3 ",
+            "size": 20
+          }
+        }
       },
-
-      // col no
-      1: {
-        layout: {
-          layoutConfig: {
-            layoutClass: "py-1 bg-yellow-100 p-1 ",
-            size: 40,
+      "1": {
+        "layout": {
+          "0": {
+            "0": {
+              "layout": {
+                "0": {
+                  "0": {
+                    "idx": "Home",
+                    "label": "left-nav",
+                    "colClass": "bg-blue-300 p-1 text-2xl"
+                  }
+                },
+                "1": {
+                  "0": {
+                    "idx": "About",
+                    "label": "left-nav",
+                    "colClass": "bg-blue-500 p-1 text-2xl"
+                  },
+                  "1": {
+                    "idx": "Home",
+                    "label": "body",
+                    "colClass": "bg-gray-300 p-1 text-2xl"
+                  }
+                },
+                "layoutConfig": {
+                  "layoutClass": "py-1 bg-yellow-100 p-1 "
+                }
+              }
+            }
           },
-          0: {
-            0: {
-              // col no
-              layout: {
-                layoutConfig: {
-                  layoutClass: "py-1 bg-yellow-100 p-1 ",
-                  size: 15,
-                },
-                0: {
-                  0: {
-                    // col no
-                    idx: "Home",
-                    label: "left-nav",
-                    size: 2,
-                    colClass: "bg-blue-300 p-1 text-2xl",
+          "1": {
+            "0": {
+              "layout": {
+                "0": {
+                  "0": {
+                    "idx": "Home",
+                    "label": "body",
+                    "colClass": "bg-green-300 p-1 text-2xl"
                   },
+                  "1": {
+                    "idx": "Home",
+                    "label": "left-nav",
+                    "colClass": "bg-blue-500 p-1 text-2xl"
+                  }
                 },
-                1: {
-                  0: {
-                    // col no
-                    idx: "About",
-                    label: "left-nav",
-                    size: 10,
-                    colClass: "bg-blue-500 p-1 text-2xl",
-                  },
-                  1: {
-                    // col no
-                    idx: "Home",
-                    label: "body",
-                    size: 60,
-                    colClass: "bg-gray-300 p-1 text-2xl",
-                  },
+                "1": {
+                  "0": {
+                    "idx": "Home",
+                    "label": "left-nav",
+                    "colClass": "bg-green-500 p-1 text-2xl"
+                  }
                 },
-              },
+                "layoutConfig": {
+                  "layoutClass": "py-1 bg-yellow-100 p-1 ",
+                  "size": 30
+                }
+              }
             },
+            "1": {
+              "layout": {
+                "0": {
+                  "0": {
+                    "idx": "Home",
+                    "label": "body",
+                    "colClass": "bg-green-300 p-1 text-2xl"
+                  },
+                  "1": {
+                    "idx": "Home",
+                    "label": "left-nav",
+                    "colClass": "bg-pink-500 p-1 text-2xl"
+                  }
+                },
+                "1": {
+                  "0": {
+                    "idx": "Home",
+                    "label": "left-nav",
+                    "colClass": "bg-yellow-500 p-1 text-2xl"
+                  }
+                },
+                "layoutConfig": {
+                  "layoutClass": "py-1 bg-yellow-100 p-1 ",
+                  "size": 70
+                }
+              }
+            }
           },
-          1: {
-            0: {
-              layout: {
-                layoutConfig: {
-                  layoutClass: "py-1 bg-yellow-100 p-1 ",
-                  size: 15,
-                },
-                0: {
-                  0: {
-                    // col no
-                    idx: "Home",
-                    label: "body",
-                    size: 8,
-                    colClass: "bg-green-300 p-1 text-2xl",
-                  },
-                  1: {
-                    // col no
-                    idx: "Home",
-                    label: "left-nav",
-                    size: 2,
-                    colClass: "bg-blue-500 p-1 text-2xl",
-                  },
-                },
-                1: {
-                  0: {
-                    // col no
-                    idx: "Home",
-                    label: "left-nav",
-                    size: 35,
-                    colClass: "bg-green-500 p-1 text-2xl",
-                  },
-                },
-              },
-            },
-            1: {
-              layout: {
-                layoutConfig: {
-                  layoutClass: "py-1 bg-yellow-100 p-1 ",
-                  size: 45,
-                },
-                0: {
-                  0: {
-                    // col no
-                    idx: "Home",
-                    label: "body",
-                    size: 8,
-                    colClass: "bg-green-300 p-1 text-2xl",
-                  },
-                  1: {
-                    // col no
-                    idx: "Home",
-                    label: "left-nav",
-                    size: 2,
-                    colClass: "bg-pink-500 p-1 text-2xl",
-                  },
-                },
-                1: {
-                  0: {
-                    // col no
-                    idx: "Home",
-                    label: "left-nav",
-                    size: 35,
-                    colClass: "bg-yellow-500 p-1 text-2xl",
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
+          "layoutConfig": {
+            "layoutClass": "py-1 bg-yellow-100 p-1 ",
+            "size": 80
+          }
+        }
+      }
     },
-  },
+    "layoutConfig": {
+      "layoutClass": "py-1 rounded bg-red-100 p-1 mr-3 "
+    }
+  }
 };
 
 // *************************************************
